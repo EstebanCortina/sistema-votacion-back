@@ -6,7 +6,8 @@
     "rootDir": "./src"
   },
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "src/env_variables.ts"
   ],
   "exclude": [
     "node_modules"

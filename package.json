@@ -4,7 +4,7 @@
   "description": "Sistema de votacion back",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon run dist/app.js",
+    "dev": "set NODE_ENV=dev&& nodemon dist/app.js",
     "prod": "node run dist/app.js"
   },
   "repository": {
