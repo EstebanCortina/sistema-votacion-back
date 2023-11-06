@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "CommonJS",
+    "outDir": "./dist",
+    "rootDir": "./src"
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/env_variables.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
