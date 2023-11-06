@@ -1,9 +1,8 @@
 var Api;
 (function (Api) {
     const router = require('express').Router();
-    router.get('/', (req, res) => {
-        res.status(200).send("api");
-    });
+    const api_controller = require('../controllers/api_controller.js');
+    router.get('/', api_controller);
     module.exports = router;
 })(Api || (Api = {}));
 ;
