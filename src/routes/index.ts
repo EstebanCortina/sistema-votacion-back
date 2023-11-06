@@ -1,6 +1,6 @@
 const express_router = require('express').Router();
 
-express_router.get('/', (req, res) => {
+express_router.get('/', (req, res): void => {
   res.status(200).send("<h1>Ruta</h1>");
 });
 

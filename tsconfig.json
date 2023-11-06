@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "strict": false,
+    "strictNullChecks": true,
     "target": "ES6",
     "module": "CommonJS",
     "outDir": "./dist",
@@ -7,7 +9,8 @@
   },
   "include": [
     "src/**/*.ts",
-    "src/env_variables.ts"
+    "src/env_variables.ts",
+    "dist/app.js"
   ],
   "exclude": [
     "node_modules"

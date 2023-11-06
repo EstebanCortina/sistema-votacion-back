@@ -1,9 +1,9 @@
-const app = require('./config/express_config.js');
+import { app } from './config/express_config.js';
 const morgan = require('morgan');
 const { MORGAN_ENV, NODE_ENV, PORT } = require('./env_variables.js');
 
-function customLogger(message) {
-  return (req, res, next) => {
+function customLogger(message: string) {
+  return (req: Request, res: Response, next) => {
     console.log(message); // Agrega tu mensaje personalizado aquí
     next();
   };

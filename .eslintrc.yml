@@ -1,0 +1,19 @@
+---
+env:
+  commonjs: true
+  es2021: true
+  node: true
+extends:
+  - "eslint:recommended"
+  - "plugin:@typescript-eslint/recommended"
+parserOptions:
+  ecmaVersion: 2021 # Cambia "latest" a una versión específica de ECMAScript, por ejemplo, "2021" para ES12
+  sourceType: "script" # Indica que estás utilizando módulos
+  project: "./tsconfig.json" # Especifica la ubicación de tu archivo tsconfig.json
+  tsconfigRootDir: . # Especifica la ubicación del archivo de configuración de TypeScript (tsconfig.json)
+ignorePatterns:
+  - "**/*.js"
+rules:
+  { "@typescript-eslint/no-var-requires": "off" }
+  # Puedes personalizar tus reglas aquí, por ejemplo:
+  # '@typescript-eslint/explicit-module-boundary-types': 'off'  # Deshabilita una regla específica
