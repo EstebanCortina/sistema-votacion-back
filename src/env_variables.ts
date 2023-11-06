@@ -8,10 +8,11 @@ namespace Enviroment {
     const envFile = path.resolve(
       __dirname,
       '..',
-      'dist',
-      `${environment}Environment`, `${environment}.env`);
+      `${environment}.env`);
     dotenv.config({ path: envFile });
+    console.log(envFile)
   }
+
   module.exports = {
     NODE_ENV: process.env.NODE_ENV || 'production',
     MORGAN_ENV: process.env.MORGAN_ENV || 'common',

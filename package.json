@@ -4,6 +4,7 @@
   "description": "Sistema de votacion back",
   "main": "index.js",
   "scripts": {
+    "rebuild": "tsc&& npm install",
     "dev": "set NODE_ENV=dev&& set MORGAN_ENV=dev&& nodemon dist/app.js",
     "testing": "set NODE_ENV=testing&& set MORGAN_ENV=tiny&& nodemon dist/app.js",
     "prod": "set NODE_ENV=prod&& set MORGAN_ENV=common&& node dist/app.js"
