@@ -14,6 +14,7 @@ namespace Enviroment {
   }
   module.exports = {
     NODE_ENV: process.env.NODE_ENV || 'production',
+    MORGAN_ENV: process.env.MORGAN_ENV || 'common',
     PORT: process.env.PORT || 443,
   }
 }
