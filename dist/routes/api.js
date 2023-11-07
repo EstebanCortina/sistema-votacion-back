@@ -1,4 +1,6 @@
-const router = require('express').Router();
-const api_controller = require('../controllers/api_controller.js');
-router.get('/', api_controller);
-module.exports = router;
+module.exports = (() => {
+    const router = require('express').Router();
+    const ApiController = require('../controllers/api_controller');
+    router.get('/', ApiController);
+    return router;
+})();
