@@ -32,7 +32,6 @@
     "ws": "^8.14.2"
   },
   "devDependencies": {
-    "@ljharb/eslint-config": "^21.1.0",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "eslint": "^8.53.0",
     "eslint-config-prettier": "^9.0.0",
