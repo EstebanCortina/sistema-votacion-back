@@ -10,13 +10,13 @@ function customLogger(message: string) {
 }
 
 // Utiliza el middleware personalizado antes de morgan para agregar un mensaje
-app.use(customLogger(NODE_ENV));
+app.use(customLogger(NODE_ENV))
 
 app.use(morgan(MORGAN_ENV));
 
 const router = require('./routes/index');
-app.use('/', router)
+app.use('/', router);
 
 app.listen(PORT, () => {
   console.log(`[${NODE_ENV}]Running on ${PORT}`);
-})
+});
