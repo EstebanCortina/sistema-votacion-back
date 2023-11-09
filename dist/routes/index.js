@@ -1,7 +1,7 @@
-const express_router = require('express').Router();
-express_router.get('/', (req, res) => {
+const expressRouter = require('express').Router();
+expressRouter.get('/', (req, res) => {
     res.status(200).send('<h1>Ruta</h1>');
 });
-const api_router = require('./api');
-express_router.use('/api', api_router);
-module.exports = express_router;
+const apiRouter = require('./api');
+expressRouter.use('/api', apiRouter);
+module.exports = expressRouter;
