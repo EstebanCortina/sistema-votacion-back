@@ -10,7 +10,7 @@ function customLogger(message: string) {
 }
 
 // Utiliza el middleware personalizado antes de morgan para agregar un mensaje
-app.use(customLogger(NODE_ENV))
+app.use(customLogger(NODE_ENV));
 
 app.use(morgan(MORGAN_ENV));
 
