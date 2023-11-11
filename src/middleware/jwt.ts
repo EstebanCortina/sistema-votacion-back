@@ -1,7 +1,7 @@
-const { SECRET_KEY } = require('../env_variables');
-const jwt = require('jsonwebtoken');
 module.exports = {
   verifyToken: (req, res, next) => {
+    const { SECRET_KEY } = require('../env_variables');
+    const jwt = require('jsonwebtoken');
     const token = req.body.token;
 
     if (!token) {

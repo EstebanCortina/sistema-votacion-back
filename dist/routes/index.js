@@ -4,4 +4,6 @@ expressRouter.get('/', (req, res) => {
 });
 const apiRouter = require('./api');
 expressRouter.use('/api', apiRouter);
+const tokenRouter = require('./jwtRouter');
+expressRouter.use('/token', tokenRouter);
 module.exports = expressRouter;
