@@ -8,6 +8,7 @@ if (environment === 'dev') {
 else if (environment === 'testing') {
     const envFile = path.resolve(`${environment}.env`);
     console.log(envFile);
+    console.log(process.env.SECRET_KEY);
     dotenv.config({ path: envFile });
 }
 module.exports = {
