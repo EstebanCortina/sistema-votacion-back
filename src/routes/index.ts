@@ -10,4 +10,7 @@ expressRouter.use('/api', verifyToken, apiRouter);
 const tokenRouter = require('./jwtRouter');
 expressRouter.use('/token', tokenRouter);
 
+const healthRouter = require('./healthRouter');
+expressRouter.use('/health', healthRouter);
+
 module.exports = expressRouter;
