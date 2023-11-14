@@ -1,16 +1,14 @@
 {
   "compilerOptions": {
     "strict": false,
-    "strictNullChecks": true,
     "target": "ES6",
     "module": "CommonJS",
     "outDir": "./dist",
-    "rootDir": "./src"
+    "rootDir": "./src",
   },
   "include": [
     "src/**/*.ts",
-    "src/env_variables.ts",
-    "dist/app.js"
+    "src/env_variables.ts"
   ],
   "exclude": [
     "node_modules"
