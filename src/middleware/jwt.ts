@@ -1,7 +1,7 @@
 module.exports = {
   verifyToken: (req, res, next) => {
     const { SECRET_KEY } = require('../env_variables');
-    const jwt = require('@services/jwtInstance');
+    const jwt = require('../services/jwtInstance');
     const token =
       req.headers.authorization && req.headers.authorization.split(' ')[1];
 

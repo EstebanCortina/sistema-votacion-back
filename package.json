@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint \"*/**/*.ts\" --quiet --fix",
-    "alias": "tsc-alias",
-    "dev": "set NODE_ENV=dev&& set MORGAN_ENV=dev&& npm run lint&& npm run alias&& nodemon dist/app.js",
+    "build": "tsc",
+    "dev": "set NODE_ENV=dev&& set MORGAN_ENV=dev&& npm run lint&& nodemon dist/app.js",
     "testing": "set NODE_ENV=testing&& set MORGAN_ENV=tiny&& node dist/app.js",
     "prod": "set NODE_ENV=prod&& set MORGAN_ENV=common&& node dist/app.js"
   },
@@ -42,7 +42,6 @@
     "eslint-plugin-import": "^2.29.0",
     "eslint-plugin-prettier": "^5.0.1",
     "prettier": "^3.0.3",
-    "tsc-alias": "^1.8.8",
     "typescript": "^5.2.2"
   }
 }
