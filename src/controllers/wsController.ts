@@ -1,6 +1,6 @@
 const client = require('../services/mqttInstance');
 const Data = require('../models/voto');
-const wsBroadcast = require('../modules/wsBroadcast');
+const wsBroadcast = require('../handlers/wsBroadcast');
 
 const conexiones = [];
 

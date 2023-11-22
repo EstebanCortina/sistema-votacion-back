@@ -1,4 +1,4 @@
-const { wss } = require('../services/wssConfig');
+const { wss } = require('../services/wssInstance');
 const wsController = require('./wsController');
 wss.on('connection', wsController);
 module.exports = (req, res) => {

@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 const client = require('../services/mqttInstance');
 const Data = require('../models/voto');
-const wsBroadcast = require('../modules/wsBroadcast');
+const wsBroadcast = require('../handlers/wsBroadcast');
 const conexiones = [];
 module.exports = (ws) => {
     console.log('Nueva conexion');
