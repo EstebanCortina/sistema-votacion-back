@@ -6,9 +6,14 @@
   "scripts": {
     "lint": "eslint \"*/**/*.ts\" --quiet --fix",
     "alias": "tsc-alias",
-    "dev": "set NODE_ENV=dev&& set MORGAN_ENV=dev&& npm run lint&& npm run alias&& nodemon dist/app.js",
+    "dev": "set NODE_ENV=dev&& set MORGAN_ENV=dev&& npm run lint&& nodemon dist/app.js",
     "testing": "set NODE_ENV=testing&& set MORGAN_ENV=tiny&& node dist/app.js",
     "prod": "set NODE_ENV=prod&& set MORGAN_ENV=common&& node dist/app.js"
+  },
+    "nodemonConfig": {
+    "events": {
+      "restart": "npm run dev alias"
+    }
   },
   "repository": {
     "type": "git",
