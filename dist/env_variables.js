@@ -1,5 +1,7 @@
 const dotenv = require('dotenv');
 const path = require('path');
+const dbConnect = require('./services/mongoInstance');
+const client = require('./services/mqttInstance');
 const environment = process.env.NODE_ENV;
 if (environment === 'dev') {
     const envFile = path.resolve(__dirname, '../env', `${environment}.env`);
@@ -10,9 +12,11 @@ else if (environment === 'testing') {
     console.log(envFile);
     dotenv.config({ path: envFile });
 }
+dbConnect();
 module.exports = {
     NODE_ENV: process.env.NODE_ENV || 'production',
     MORGAN_ENV: process.env.MORGAN_ENV || 'common',
     PORT: process.env.PORT || 443,
     SECRET_KEY: process.env.SECRET_KEY,
+    mqttClient: client,
 };
