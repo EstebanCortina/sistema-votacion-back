@@ -10,11 +10,6 @@
     "testing": "set NODE_ENV=testing&& set MORGAN_ENV=tiny&& node dist/app.js",
     "prod": "set NODE_ENV=prod&& set MORGAN_ENV=common&& node dist/app.js"
   },
-    "nodemonConfig": {
-    "events": {
-      "restart": "npm run dev alias"
-    }
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/EstebanCortina/sistema-votacion-back.git"
