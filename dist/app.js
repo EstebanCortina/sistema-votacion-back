@@ -4,6 +4,7 @@ const { MORGAN_ENV, NODE_ENV, PORT, mqttClient } = require('./env_variables');
 const { server } = require('./services/wssInstance');
 const getDate = require('./handlers/getDate');
 const saveVoto = require('./database/saveVoto');
+const dbConnect = require('./services/mongoInstance');
 app.use(morgan(MORGAN_ENV));
 mqttClient.on('message', (topic, message) => {
     const messageObj = JSON.parse(message);
@@ -15,5 +16,6 @@ mqttClient.on('message', (topic, message) => {
 const router = require('./routes/index');
 app.use('/', router);
 server.listen(PORT, () => {
+    dbConnect();
     console.log(`[${NODE_ENV}]Running on ${PORT}`);
 });
