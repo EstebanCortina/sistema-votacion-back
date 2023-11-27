@@ -1,4 +1,3 @@
-const Data = require('../models/voto');
 const wsBroadcast = require('../handlers/wsBroadcast');
 
 const conexiones = [];
@@ -9,34 +8,6 @@ module.exports = (ws) => {
   conexiones.push(ws);
   mqttClient.on('message', (topic, message) => {
     const messageObj = JSON.parse(message);
-    const fechaActual = new Date();
-    const offsetHorario = -6 * 60 * 60 * 1000;
-    fechaActual.setTime(fechaActual.getTime() + offsetHorario);
-
-    const fechaISO = fechaActual.toISOString();
-    console.log(fechaActual);
-
-    messageObj.timeStamp = fechaActual;
-    (async () => {
-      try {
-        const nuevoDocumento = new Data({
-          timeStamp: fechaISO,
-          id_casilla: messageObj.id_casilla,
-          ciudad: messageObj.ciudad,
-          idVotante: messageObj.idVotante,
-          voto: messageObj.voto,
-          fecha: messageObj.fecha,
-          hora: messageObj.hora,
-        });
-
-        // Guardar el nuevo documento
-        await nuevoDocumento.save();
-      } catch (error) {}
-    })();
-
-    const nuevoVoto = new Data(messageObj);
-    nuevoVoto.save();
-
     (async () => {
       try {
         await wsBroadcast(conexiones, ws, messageObj);
@@ -45,8 +16,6 @@ module.exports = (ws) => {
       }
     })();
   });
-
-  //Websockets actions
 
   ws.on('message', (message) => {
     const publish = JSON.parse(message);
