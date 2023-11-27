@@ -7,10 +7,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const conexiones = [];
 module.exports = (ws) => {
     const WebSocket = require('ws');
     const { mqttClient } = require('../env_variables');
+    const conexiones = [];
     console.log('Nueva conexion');
     conexiones.push(ws);
     mqttClient.on('message', (topic, message) => {
