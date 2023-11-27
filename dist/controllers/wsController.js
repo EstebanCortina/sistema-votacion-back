@@ -7,28 +7,28 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const client = require('../services/mqttInstance');
-const Data = require('../models/voto');
-const wsBroadcast = require('../handlers/wsBroadcast');
 const conexiones = [];
 module.exports = (ws) => {
+    const WebSocket = require('ws');
+    const { mqttClient } = require('../env_variables');
     console.log('Nueva conexion');
     conexiones.push(ws);
-    client.on('message', (topic, message) => {
+    mqttClient.on('message', (topic, message) => {
         const messageObj = JSON.parse(message);
-        console.log(messageObj);
-        const nuevoVoto = new Data(messageObj);
-        nuevoVoto.save();
         (() => __awaiter(this, void 0, void 0, function* () {
             try {
-                yield wsBroadcast(conexiones, ws, messageObj);
+                conexiones.forEach((client) => {
+                    console.log('mandando');
+                    if (client.readyState === WebSocket.OPEN) {
+                        client.send(JSON.stringify(messageObj));
+                    }
+                });
             }
             catch (error) {
                 console.error(error);
             }
         }))();
     });
-    //Websockets actions
     ws.on('message', (message) => {
         const publish = JSON.parse(message);
         if (publish.type === 1) {
@@ -47,8 +47,11 @@ module.exports = (ws) => {
     ws.on('close', () => {
         (() => __awaiter(this, void 0, void 0, function* () {
             try {
-                yield wsBroadcast(conexiones, ws);
-                console.log('cerrado');
+                const index = conexiones.indexOf(ws);
+                if (index !== -1) {
+                    conexiones.splice(index, 1);
+                }
+                console.log('Conexion cerrada');
             }
             catch (error) {
                 console.error(error);

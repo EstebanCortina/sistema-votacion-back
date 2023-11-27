@@ -1,8 +1,11 @@
 const mongoose = require('mongoose');
 const dataSchema = new mongoose.Schema({
+    timeStamp: {
+        type: Date,
+    },
     id_casilla: Number,
     ciudad: String,
-    id_votante: Number,
+    idVotante: Number,
     voto: String,
     fecha: String,
     hora: String,

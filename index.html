@@ -11,7 +11,11 @@
 
 </body>
 <script>
-  const wss = new WebSocket('ws:localhost:3030')
+  const wss = new WebSocket('ws:localhost:3030/api');
+  wss.addEventListener('message', (event) => {
+    let messageObj = JSON.parse(event.data)
+    console.log(messageObj);
+  });
 </script>
 
 </html>
