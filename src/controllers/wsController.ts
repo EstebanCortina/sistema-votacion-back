@@ -1,8 +1,7 @@
-const wsBroadcast = require('../handlers/wsBroadcast');
-
 const conexiones = [];
 
 module.exports = (ws) => {
+  const WebSocket = require('ws');
   const { mqttClient } = require('../env_variables');
   console.log('Nueva conexion');
   conexiones.push(ws);
@@ -10,7 +9,12 @@ module.exports = (ws) => {
     const messageObj = JSON.parse(message);
     (async () => {
       try {
-        await wsBroadcast(conexiones, ws, messageObj);
+        conexiones.forEach((client) => {
+          console.log('mandando');
+          if (client.readyState === WebSocket.OPEN) {
+            client.send(JSON.stringify(messageObj));
+          }
+        });
       } catch (error) {
         console.error(error);
       }
@@ -33,8 +37,11 @@ module.exports = (ws) => {
   ws.on('close', () => {
     (async () => {
       try {
-        await wsBroadcast(conexiones, ws);
-        console.log('cerrado');
+        const index = conexiones.indexOf(ws);
+        if (index !== -1) {
+          conexiones.splice(index, 1);
+        }
+        console.log('Conexion cerrada');
       } catch (error) {
         console.error(error);
       }
