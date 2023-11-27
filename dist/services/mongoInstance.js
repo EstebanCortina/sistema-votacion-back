@@ -8,8 +8,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 module.exports = (() => {
+    const { MONGODB_URL } = require('../env_variables');
     const mongoose = require('mongoose');
-    const uri = 'mongodb+srv://ecortina:universidad098@cluster0.llifhyn.mongodb.net/votacion?retryWrites=true&w=majority';
+    const uri = MONGODB_URL;
     const dbConnect = () => __awaiter(this, void 0, void 0, function* () {
         try {
             yield mongoose.connect(uri, {

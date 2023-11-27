@@ -18,5 +18,6 @@ module.exports = {
     MORGAN_ENV: process.env.MORGAN_ENV || 'common',
     PORT: process.env.PORT || 443,
     SECRET_KEY: process.env.SECRET_KEY,
+    MONGODB_URL: process.env.MONGODB_URL,
     mqttClient: client,
 };
