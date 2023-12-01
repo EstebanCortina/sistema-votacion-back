@@ -11,7 +11,7 @@
 
 </body>
 <script>
-  const wss = new WebSocket('ws://localhost:3030/api');
+  const wss = new WebSocket('wss://sistemavotacion.onrender.com:443/api');
   wss.addEventListener('message', (event) => {
     let messageObj = JSON.parse(event.data)
     console.log(messageObj);

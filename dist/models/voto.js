@@ -5,7 +5,7 @@ const dataSchema = new mongoose.Schema({
     },
     id_casilla: Number,
     ciudad: String,
-    idVotante: Number,
+    idVotante: String,
     voto: String,
     fecha: String,
     hora: String,
